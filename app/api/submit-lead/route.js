@@ -85,10 +85,10 @@ export async function POST(request) {
     });
   }
 
-  // Save to Google Sheets
+  // Save to Google Sheets (optional — skipped if not configured)
   try {
-    await appendLead(lead);
-    results.sheets = true;
+    const sheetResult = await appendLead(lead);
+    results.sheets = sheetResult !== null;
   } catch (err) {
     logger.error('sheets.append_failed', {
       requestId,
@@ -109,9 +109,9 @@ export async function POST(request) {
     });
   }
 
-  // If both Notion and Sheets failed, return error
-  if (!results.notion && !results.sheets) {
-    logger.error('all_storage_failed', { requestId, leadId: lead.leadId, results });
+  // If Notion failed (primary storage), return error
+  if (!results.notion) {
+    logger.error('primary_storage_failed', { requestId, leadId: lead.leadId, results });
     return Response.json(
       {
         success: false,
