@@ -9,6 +9,7 @@
   <meta property="og:title" content="5th Creative — Attention Creates Opportunity" />
   <meta property="og:description" content="Build trust before the first call. Full-service creative for brands that move." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3EiySi9FiZS1xcUPg6DMyzXk0LA/hf_20260606_174859_35a2c48b-8947-4cf1-9c37-494498840632.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,7 +72,7 @@
       align-items: center;
       justify-content: space-between;
       height: 100px;
-      padding: 0 20px;
+      padding: 0 24px;
       max-width: 600px;
       margin: 0 auto;
     }
@@ -97,6 +98,7 @@
     /* ── HERO ─────────────────────────────────────── */
     #hero {
       position: relative;
+      min-height: 100vh;
       min-height: 100svh;
       display: flex;
       flex-direction: column;
@@ -175,7 +177,7 @@
     /* ── PROCESS ──────────────────────────────────── */
     #process {
       background: var(--bg-section);
-      padding: 50px 24px;
+      padding: 50px 0;
     }
     #process .section-heading {
       margin-bottom: 48px;
@@ -219,7 +221,7 @@
     /* ── SERVICES ─────────────────────────────────── */
     #services {
       background: var(--black);
-      padding: 50px 24px 80px;
+      padding: 50px 0 80px;
     }
     #services .section-heading {
       margin-bottom: 40px;
@@ -262,7 +264,7 @@
     /* ── CTA / FORM ───────────────────────────────── */
     #cta {
       background: var(--bg-section);
-      padding: 80px 24px 10px;
+      padding: 80px 0 80px;
     }
     #cta .section-heading {
       margin-bottom: 12px;
@@ -366,21 +368,20 @@
     footer {
       background: var(--black);
       border-top: 1px solid rgba(255,255,255,0.06);
-      height: 100px;
-      padding: 0 20px 24px;
+      padding: 24px 0;
     }
     .footer-inner {
       max-width: 600px;
       margin: 0 auto;
+      padding: 0 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 100%;
     }
     .footer-logo {
+      height: 48px;
+      width: auto;
       filter: invert(1);
-      width: 1px;
-      height: 100px;
     }
     .footer-email {
       font-size: 15px;
@@ -438,6 +439,8 @@
         class="hero-bg"
         src="https://d8j0ntlcm91z4.cloudfront.net/user_3EiySi9FiZS1xcUPg6DMyzXk0LA/hf_20260606_174859_35a2c48b-8947-4cf1-9c37-494498840632.png"
         alt=""
+        loading="eager"
+        fetchpriority="high"
       />
       <div class="hero-gradient"></div>
       <div class="hero-content">
@@ -552,37 +555,37 @@
 
         <form id="contact-form" class="form-card" novalidate>
           <div>
-            <label class="form-label">Full Name <span class="req">*</span></label>
-            <input class="form-input" name="name" placeholder="Your full name" required />
+            <label class="form-label" for="field-name">Full Name <span class="req">*</span></label>
+            <input class="form-input" id="field-name" name="name" placeholder="Your full name" autocomplete="name" required />
           </div>
           <div>
-            <label class="form-label">Email Address <span class="req">*</span></label>
-            <input class="form-input" name="email" type="email" placeholder="you@company.com" required />
+            <label class="form-label" for="field-email">Email Address <span class="req">*</span></label>
+            <input class="form-input" id="field-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
           </div>
           <div>
-            <label class="form-label">Website URL</label>
-            <input class="form-input" name="website" placeholder="https://yourbrand.com" />
+            <label class="form-label" for="field-website">Website URL</label>
+            <input class="form-input" id="field-website" name="website" type="url" placeholder="https://yourbrand.com" autocomplete="url" />
           </div>
           <div>
-            <label class="form-label">What services interest you?</label>
-            <select class="form-input form-select" name="service">
+            <label class="form-label" for="field-service">What services interest you?</label>
+            <select class="form-input form-select" id="field-service" name="service">
               <option value="">Select one…</option>
-              <option>Strategy / Positioning</option>
-              <option>Content Creation</option>
-              <option>Website Creation</option>
-              <option>Branding</option>
-              <option>Paid Ads</option>
+              <option value="strategy">Strategy / Positioning</option>
+              <option value="content">Content Creation</option>
+              <option value="website">Website Creation</option>
+              <option value="branding">Branding</option>
+              <option value="ads">Paid Ads</option>
             </select>
           </div>
           <div>
-            <label class="form-label">Tell us about your business</label>
-            <textarea class="form-input form-textarea" name="message" rows="3" placeholder="What does your brand need right now?"></textarea>
+            <label class="form-label" for="field-message">Tell us about your business</label>
+            <textarea class="form-input form-textarea" id="field-message" name="message" rows="3" placeholder="What does your brand need right now?"></textarea>
           </div>
           <button type="submit" class="form-submit">Book My Free Call</button>
         </form>
 
-        <div id="form-success" class="success-card">
-          <div class="success-icon">✓</div>
+        <div id="form-success" class="success-card" role="alert">
+          <div class="success-icon" aria-hidden="true">&#10003;</div>
           <p class="title">You're in.</p>
           <p class="subtitle">We'll be in touch within 24 hours.</p>
         </div>
@@ -594,31 +597,34 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <img class="footer-logo" src="assets/logo.png" alt="5th Creative" />
+      <a href="/" aria-label="5th Creative — home">
+        <img class="footer-logo" src="assets/logo-black.png" alt="5th Creative" />
+      </a>
       <a href="mailto:hello@5thcreative.com" class="footer-email">hello@5thcreative.com</a>
     </div>
   </footer>
 
   <script>
-    // Form validation & submission
-    const form = document.getElementById('contact-form');
-    const success = document.getElementById('form-success');
+    var form = document.getElementById('contact-form');
+    var success = document.getElementById('form-success');
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const name = form.elements.name;
-      const email = form.elements.email;
-      let valid = true;
+      var nameInput = form.elements.name;
+      var emailInput = form.elements.email;
+      var valid = true;
 
-      name.classList.remove('error');
-      email.classList.remove('error');
+      nameInput.classList.remove('error');
+      emailInput.classList.remove('error');
 
-      if (!name.value.trim()) {
-        name.classList.add('error');
+      if (!nameInput.value.trim()) {
+        nameInput.classList.add('error');
+        nameInput.focus();
         valid = false;
       }
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        email.classList.add('error');
+      if (!emailInput.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+        emailInput.classList.add('error');
+        if (valid) emailInput.focus();
         valid = false;
       }
 
@@ -626,9 +632,9 @@
 
       form.style.display = 'none';
       success.classList.add('show');
+      success.focus();
     });
 
-    // Clear error on input
     form.querySelectorAll('.form-input').forEach(function(input) {
       input.addEventListener('input', function() {
         this.classList.remove('error');
