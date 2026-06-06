@@ -3,36 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>5th Creative — Content-First Growth Agency</title>
-  <meta name="description" content="Grow your business through content that actually converts. 5th Creative helps businesses create strategic organic content, build authority, and scale what works with paid advertising." />
-  <meta name="keywords" content="content marketing agency, content strategy, organic growth, paid advertising, brand authority" />
-  <meta property="og:title" content="5th Creative — Content-First Growth Agency" />
-  <meta property="og:description" content="Create strategic content, build authority, and scale what works with paid advertising." />
+  <title>5th Creative — Attention Creates Opportunity</title>
+  <meta name="description" content="5th Creative helps brands build trust through strategic content, positioning, and paid growth. Book a free strategy call." />
+  <meta name="keywords" content="creative agency, content creation, brand strategy, paid advertising, website design" />
+  <meta property="og:title" content="5th Creative — Attention Creates Opportunity" />
+  <meta property="og:description" content="Build trust before the first call. Full-service creative for brands that move." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Reset & Base ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:   #1878F3;
-      --blue-d: #1566d4;
-      --black:  #000000;
-      --white:  #FFFFFF;
-      --gray:   #F7F7F7;
-      --muted:  rgba(0,0,0,.45);
-      --border: rgba(0,0,0,.08);
-
-      --r-sm:   10px;
-      --r-md:   14px;
-      --r-lg:   18px;
-      --r-pill: 999px;
-
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --blue: #1878F3;
+      --blue-glow: rgba(24,120,243,0.3);
+      --black: #000000;
+      --bg-card: #151515;
+      --bg-section: #0a0a0a;
+      --border: #222;
+      --border-card: #1a1a1a;
+      --white: #ffffff;
+      --muted: #999;
+      --input-bg: #0f0f0f;
+      --input-border: #333;
+      --error: #E03131;
     }
 
     html {
@@ -42,11 +39,12 @@
     }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'DM Sans', system-ui, sans-serif;
       font-size: 16px;
       line-height: 1.6;
-      color: var(--black);
-      background: var(--white);
+      color: var(--white);
+      background: var(--black);
+      overflow-x: hidden;
     }
 
     img { display: block; max-width: 100%; }
@@ -54,1027 +52,490 @@
     ul, ol { list-style: none; }
     button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-    /* ── Layout helpers ───────────────────────────────────────────── */
     .wrap {
-      max-width: 1200px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 0 20px;
-    }
-    @media (min-width: 768px)  { .wrap { padding: 0 32px; } }
-    @media (min-width: 1024px) { .wrap { padding: 0 48px; } }
-
-    section {
-      padding: 80px 0;
-    }
-    @media (min-width: 768px)  { section { padding: 112px 0; } }
-    @media (min-width: 1024px) { section { padding: 144px 0; } }
-
-    /* ── Typography ───────────────────────────────────────────────── */
-    .display {
-      font-size: clamp(2.25rem, 5.5vw, 4.25rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-    .headline {
-      font-size: clamp(1.75rem, 3.5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.12;
-      letter-spacing: -0.025em;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,.38);
-      margin-bottom: 20px;
-    }
-    .eyebrow::before {
-      content: '';
-      display: block;
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--blue);
-      flex-shrink: 0;
+      padding: 0 24px;
     }
 
-    /* ── Buttons ──────────────────────────────────────────────────── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--r-pill);
-      font-size: 14px;
-      font-weight: 600;
-      padding: 14px 28px;
-      min-height: 48px;
-      transition: background .18s, border-color .18s, color .18s;
-      white-space: nowrap;
-    }
-    .btn:focus-visible {
-      outline: 2px solid var(--blue);
-      outline-offset: 2px;
-    }
-    .btn-primary {
-      background: var(--blue);
-      color: #fff;
-    }
-    .btn-primary:hover { background: var(--blue-d); }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--black);
-      border: 1.5px solid rgba(0,0,0,.18);
-    }
-    .btn-secondary:hover { border-color: rgba(0,0,0,.35); background: rgba(0,0,0,.03); }
-
-    .btn-white {
-      background: #fff;
-      color: var(--black);
-    }
-    .btn-white:hover { background: rgba(255,255,255,.9); }
-
-    .btn-outline-white {
-      background: transparent;
-      color: #fff;
-      border: 1.5px solid rgba(255,255,255,.22);
-    }
-    .btn-outline-white:hover { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.07); }
-
-    /* ── Cards ────────────────────────────────────────────────────── */
-    .card {
-      border-radius: var(--r-lg);
-      border: 1px solid var(--border);
-      background: var(--white);
-      padding: 28px;
-    }
-
-    /* ── NAVBAR ───────────────────────────────────────────────────── */
+    /* ── NAV ──────────────────────────────────────── */
     #navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
+      position: sticky;
+      top: 0;
       z-index: 100;
-      background: var(--white);
-      transition: box-shadow .2s, border-color .2s;
-    }
-    #navbar.scrolled {
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      background: rgba(255,255,255,.95);
+      background: var(--black);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 64px;
+      height: 100px;
+      padding: 0 20px;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 9px;
+    .nav-logo img {
+      height: 100px;
+      width: 100px;
+      object-fit: cover;
+      filter: invert(1);
     }
-    .nav-logo-badge {
-      width: 32px; height: 32px;
+    .nav-cta {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--white);
+      background: var(--blue);
+      padding: 10px 20px;
       border-radius: 8px;
-      background: var(--blue);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      letter-spacing: 0.02em;
+      transition: filter 0.15s;
     }
-    .nav-logo-name {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -.01em;
-    }
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 32px;
-    }
-    @media (min-width: 768px) { .nav-links { display: flex; } }
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(0,0,0,.55);
-      transition: color .15s;
-    }
-    .nav-links a:hover { color: var(--black); }
-    .nav-cta { display: none; }
-    @media (min-width: 768px) { .nav-cta { display: block; } }
-    .nav-cta a { font-size: 13px; padding: 10px 20px; min-height: 40px; }
+    .nav-cta:hover { filter: brightness(1.08); }
 
-    /* hamburger */
-    .nav-hamburger {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px; height: 44px;
-      border-radius: var(--r-sm);
-      color: var(--black);
-      transition: background .15s;
-    }
-    .nav-hamburger:hover { background: rgba(0,0,0,.05); }
-    @media (min-width: 768px) { .nav-hamburger { display: none; } }
-    .nav-hamburger svg { pointer-events: none; }
-
-    /* ── MOBILE DRAWER ────────────────────────────────────────────── */
-    #drawer-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 200;
-      background: rgba(0,0,0,.2);
-      backdrop-filter: blur(4px);
-    }
-    #drawer-overlay.open { display: block; }
-
-    #drawer {
-      position: fixed;
-      top: 0; right: 0; bottom: 0;
-      z-index: 201;
-      width: min(85vw, 360px);
-      background: var(--white);
-      box-shadow: -4px 0 40px rgba(0,0,0,.12);
-      display: flex;
-      flex-direction: column;
-      transform: translateX(100%);
-      transition: transform .28s var(--ease-out);
-    }
-    #drawer.open { transform: translateX(0); }
-
-    .drawer-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      padding: 0 24px;
-      border-bottom: 1px solid var(--border);
-    }
-    .drawer-close {
-      width: 40px; height: 40px;
-      border-radius: var(--r-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--black);
-      transition: background .15s;
-    }
-    .drawer-close:hover { background: rgba(0,0,0,.05); }
-    .drawer-nav {
-      flex: 1;
-      padding: 24px;
-      overflow-y: auto;
-    }
-    .drawer-nav a {
-      display: flex;
-      align-items: center;
-      padding: 14px 0;
-      font-size: 16px;
-      font-weight: 500;
-      color: rgba(0,0,0,.65);
-      border-bottom: 1px solid var(--border);
-      transition: color .15s;
-    }
-    .drawer-nav a:last-child { border-bottom: none; }
-    .drawer-nav a:hover { color: var(--black); }
-    .drawer-foot {
-      padding: 24px;
-      border-top: 1px solid var(--border);
-    }
-    .drawer-foot a {
-      display: flex;
-      width: 100%;
-      font-size: 15px;
-    }
-
-    /* ── MOBILE STICKY CTA ────────────────────────────────────────── */
-    #mobile-cta {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      z-index: 50;
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 12px 20px;
-      padding-bottom: calc(12px + env(safe-area-inset-bottom));
-    }
-    @media (min-width: 768px) { #mobile-cta { display: none; } }
-    #mobile-cta a { width: 100%; font-size: 15px; }
-
-    /* ── HERO ─────────────────────────────────────────────────────── */
+    /* ── HERO ─────────────────────────────────────── */
     #hero {
-      padding-top: calc(64px + 64px);
-      padding-bottom: 80px;
-    }
-    @media (min-width: 768px) { #hero { padding-top: calc(64px + 80px); padding-bottom: 112px; } }
-    @media (min-width: 1024px) { #hero { padding-top: calc(64px + 96px); padding-bottom: 144px; } }
-
-    .hero-content { max-width: 840px; }
-    .hero-heading { margin-bottom: 24px; }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: var(--muted);
-      max-width: 540px;
-      margin-bottom: 40px;
-    }
-    .hero-ctas {
+      position: relative;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-bottom: 64px;
-    }
-    @media (min-width: 480px) {
-      .hero-ctas { flex-direction: row; align-items: center; }
-    }
-    .hero-ctas .btn { font-size: 15px; padding: 16px 28px; }
-
-    /* Framework bar */
-    .framework {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 4px;
-    }
-    .framework-inner {
-      display: inline-flex;
-      align-items: center;
-      gap: 0;
-      min-width: max-content;
-    }
-    .fw-step {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      color: var(--black);
-      white-space: nowrap;
-    }
-    .fw-step.first { background: var(--blue); color: #fff; border-color: var(--blue); }
-    .fw-step.last  { background: var(--black); color: #fff; border-color: var(--black); }
-    .fw-arrow {
-      margin: 0 8px;
-      color: rgba(0,0,0,.22);
-      flex-shrink: 0;
-    }
-    .framework-label {
-      margin-top: 12px;
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(0,0,0,.3);
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    /* ── PROBLEM ──────────────────────────────────────────────────── */
-    #problem { background: var(--gray); }
-
-    .problem-head {
-      max-width: 620px;
-      margin-bottom: 56px;
-    }
-    .problem-head h2 { margin-bottom: 20px; }
-    .problem-head p {
-      font-size: 1.0625rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    .problem-head strong { color: var(--black); font-weight: 600; }
-
-    .problem-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-    @media (min-width: 640px) { .problem-cards { grid-template-columns: repeat(3, 1fr); } }
-
-    .problem-card { display: flex; flex-direction: column; gap: 20px; }
-    .problem-num {
-      font-size: 13px;
-      font-weight: 700;
-      font-variant-numeric: tabular-nums;
-      color: var(--blue);
-      letter-spacing: .02em;
-    }
-    .problem-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-    .problem-card p { font-size: .9375rem; color: var(--muted); line-height: 1.65; }
-
-    /* ── METHOD ───────────────────────────────────────────────────── */
-    .method-head { margin-bottom: 56px; }
-    .method-head h2 { max-width: 420px; }
-
-    .method-steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    @media (min-width: 768px)  { .method-steps { grid-template-columns: repeat(5, 1fr); gap: 16px; } }
-
-    .method-step { display: flex; flex-direction: column; gap: 16px; }
-
-    .step-num-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .step-num {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(0,0,0,.4);
-      font-variant-numeric: tabular-nums;
-      flex-shrink: 0;
-    }
-    .step-line {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-    @media (min-width: 768px) { .step-line { display: none; } }
-
-    .method-step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-    .method-step p { font-size: .9rem; color: var(--muted); line-height: 1.65; }
-
-    .method-footer {
-      margin-top: 56px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-    .method-footer p { font-size: .9375rem; color: rgba(0,0,0,.38); max-width: 520px; line-height: 1.7; }
-    .method-footer strong { color: var(--black); font-weight: 600; }
-
-    /* ── SERVICES ─────────────────────────────────────────────────── */
-    #services { background: var(--gray); }
-
-    .services-head { margin-bottom: 48px; }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    @media (min-width: 540px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
-
-    .service-card { display: flex; flex-direction: column; gap: 16px; }
-    .service-icon {
-      width: 40px; height: 40px;
-      border-radius: var(--r-sm);
-      background: rgba(0,0,0,.04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(0,0,0,.5);
-      transition: background .18s, color .18s;
-    }
-    .service-card:hover .service-icon {
-      background: rgba(24,120,243,.09);
-      color: var(--blue);
-    }
-    .service-card h3 { font-size: .9375rem; font-weight: 600; margin-bottom: 6px; }
-    .service-card p { font-size: .875rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── WHY US ───────────────────────────────────────────────────── */
-    .why-head { margin-bottom: 56px; max-width: 520px; }
-
-    .why-cols {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1px;
-      background: rgba(0,0,0,.07);
-      border: 1px solid rgba(0,0,0,.07);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-    }
-    @media (min-width: 768px) { .why-cols { grid-template-columns: repeat(3, 1fr); } }
-
-    .why-col {
-      background: var(--white);
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .why-accent {
-      width: 32px; height: 2px;
-      background: var(--blue);
-      border-radius: 2px;
-    }
-    .why-col h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 4px; }
-    .why-col p { font-size: .9375rem; color: var(--muted); line-height: 1.65; }
-
-    /* ── CASE STUDIES ─────────────────────────────────────────────── */
-    #results { background: var(--gray); }
-    .results-head { margin-bottom: 56px; }
-    .results-head h2 { margin-bottom: 16px; }
-    .results-head p { font-size: 1rem; color: var(--muted); max-width: 400px; }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    @media (min-width: 640px) { .results-grid { grid-template-columns: repeat(3, 1fr); } }
-
-    .result-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 32px;
-      min-height: 220px;
-    }
-    .result-industry {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: rgba(0,0,0,.32);
-      margin-bottom: 16px;
-    }
-    .result-name-bar {
-      height: 16px; width: 140px;
-      background: rgba(0,0,0,.06);
-      border-radius: 4px;
-      margin-bottom: 8px;
-    }
-    .result-placeholder { font-size: 13px; color: rgba(0,0,0,.3); }
-
-    .result-bottom { display: flex; align-items: flex-end; justify-content: space-between; }
-    .result-metric { font-size: 1.625rem; font-weight: 700; line-height: 1; margin-bottom: 4px; letter-spacing: -.03em; }
-    .result-sublabel { font-size: 12px; color: rgba(0,0,0,.38); }
-    .result-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue);
-      transition: gap .15s;
-    }
-    .result-link:hover { gap: 10px; }
-
-    /* ── FAQ ──────────────────────────────────────────────────────── */
-    .faq-head { margin-bottom: 48px; }
-
-    .faq-list {
-      max-width: 720px;
-      border-top: 1px solid var(--border);
-    }
-    .faq-item { border-bottom: 1px solid var(--border); }
-
-    .faq-trigger {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 22px 0;
-      gap: 24px;
-      text-align: left;
-      cursor: pointer;
-    }
-    .faq-trigger:focus-visible { outline: 2px solid var(--blue); border-radius: 4px; }
-
-    .faq-question {
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 1.4;
-      color: var(--black);
-      transition: color .15s;
-    }
-    .faq-item.open .faq-question { color: var(--blue); }
-
-    .faq-icon {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(0,0,0,.38);
-      flex-shrink: 0;
-      transition: background .18s, border-color .18s, color .18s;
-    }
-    .faq-item.open .faq-icon {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: #fff;
-    }
-
-    .faq-answer {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height .3s var(--ease-out);
-    }
-    .faq-answer-inner {
-      padding-bottom: 24px;
-      padding-right: 48px;
-      font-size: .9375rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ── FINAL CTA ────────────────────────────────────────────────── */
-    #contact {
+      justify-content: flex-end;
       background: var(--black);
-      text-align: center;
+      overflow: hidden;
     }
-    #contact .eyebrow { color: rgba(255,255,255,.35); }
-    #contact .eyebrow::before { background: var(--blue); }
-    #contact h2 { color: #fff; max-width: 680px; margin: 0 auto 24px; }
-    .contact-sub {
-      font-size: 1.0625rem;
-      color: rgba(255,255,255,.45);
-      max-width: 440px;
-      margin: 0 auto 40px;
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.5;
     }
-    .contact-ctas {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 70%);
     }
-    @media (min-width: 480px) { .contact-ctas { flex-direction: row; justify-content: center; } }
-    .contact-ctas .btn { font-size: 15px; padding: 16px 32px; min-width: 200px; }
-    .contact-trust {
-      margin-top: 32px;
-      font-size: 13px;
-      color: rgba(255,255,255,.22);
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      text-align: left;
+      padding: 40px 24px 150px;
     }
-
-    /* ── FOOTER ───────────────────────────────────────────────────── */
-    footer {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 64px 0 0;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-    @media (min-width: 768px) {
-      .footer-grid { grid-template-columns: 1fr 1fr 2fr; gap: 32px; }
-    }
-    .footer-brand p {
-      font-size: .875rem;
-      color: rgba(0,0,0,.38);
-      max-width: 200px;
-      line-height: 1.6;
-      margin: 12px 0 16px;
-    }
-    .footer-brand a.email {
-      font-size: .875rem;
-      color: rgba(0,0,0,.5);
-      transition: color .15s;
-    }
-    .footer-brand a.email:hover { color: var(--black); }
-
-    .footer-col h4 {
-      font-size: 11px;
-      font-weight: 700;
+    .hero-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 14vw, 80px);
+      line-height: 0.95;
+      color: var(--white);
       text-transform: uppercase;
-      letter-spacing: .1em;
-      color: rgba(0,0,0,.28);
+      letter-spacing: -0.01em;
       margin-bottom: 20px;
     }
-    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
-    .footer-col ul.two-col { columns: 2; gap: 24px; }
-    .footer-col a {
-      font-size: .9rem;
-      color: rgba(0,0,0,.52);
-      transition: color .15s;
-      display: inline-block;
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+      max-width: 380px;
+      color: var(--white);
     }
-    .footer-col a:hover { color: var(--black); }
+    .btn-cta {
+      display: inline-flex;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--white);
+      background: var(--blue);
+      padding: 16px 32px;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px var(--blue-glow);
+      transition: filter 0.15s;
+    }
+    .btn-cta:hover { filter: brightness(1.08); }
 
-    .footer-bottom {
+    /* ── SECTION LABEL ────────────────────────────── */
+    .section-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(32px, 8vw, 44px);
+      line-height: 1.05;
+      color: var(--white);
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+
+    /* ── PROCESS ──────────────────────────────────── */
+    #process {
+      background: var(--bg-section);
+      padding: 50px 24px;
+    }
+    #process .section-heading {
+      margin-bottom: 48px;
+    }
+    .process-steps {
       display: flex;
       flex-direction: column;
+      gap: 20px;
+    }
+    .process-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .process-card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .process-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      color: var(--blue);
+      letter-spacing: 0.05em;
+    }
+    .process-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .process-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* ── SERVICES ─────────────────────────────────── */
+    #services {
+      background: var(--black);
+      padding: 50px 24px 80px;
+    }
+    #services .section-heading {
+      margin-bottom: 40px;
+    }
+    .services-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .service-card {
+      display: flex;
+      align-items: flex-start;
       gap: 16px;
+      background: #111;
+      border: 1px solid var(--border-card);
+      border-radius: 12px;
+      padding: 22px 20px;
+    }
+    .service-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background: var(--white);
+      flex-shrink: 0;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+    .service-card p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--white);
+    }
+
+    /* ── CTA / FORM ───────────────────────────────── */
+    #cta {
+      background: var(--bg-section);
+      padding: 80px 24px 10px;
+    }
+    #cta .section-heading {
+      margin-bottom: 12px;
+    }
+    .cta-sub {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+    .form-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      border: 1px solid var(--border);
+    }
+    .form-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-label .req { color: var(--blue); }
+    .form-input {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: var(--input-bg);
+      color: var(--white);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input::placeholder { color: #666; }
+    .form-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(24,120,243,0.15);
+    }
+    .form-input.error { border-color: var(--error); }
+    .form-select {
+      appearance: auto;
+      cursor: pointer;
+    }
+    .form-textarea { resize: vertical; }
+    .form-submit {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--white);
+      background: var(--blue);
+      border: none;
+      padding: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 24px rgba(24,120,243,0.25);
+      margin-top: 4px;
+      transition: filter 0.15s;
+    }
+    .form-submit:hover { filter: brightness(1.08); }
+
+    .success-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 48px 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+      display: none;
+    }
+    .success-card.show { display: block; }
+    .success-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(24,120,243,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 28px;
+      color: var(--blue);
+    }
+    .success-card .title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .success-card .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      height: 100px;
+      padding: 0 20px 24px;
+    }
+    .footer-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 0;
-      border-top: 1px solid var(--border);
+      height: 100%;
     }
-    @media (min-width: 640px) { .footer-bottom { flex-direction: row; } }
-    .footer-copy { font-size: 13px; color: rgba(0,0,0,.32); }
+    .footer-logo {
+      filter: invert(1);
+      width: 1px;
+      height: 100px;
+    }
+    .footer-email {
+      font-size: 15px;
+      color: var(--white);
+      transition: color 0.15s;
+    }
+    .footer-email:hover { color: var(--blue); }
 
-    .social-links { display: flex; align-items: center; gap: 4px; }
-    .social-link {
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 8px;
-      color: rgba(0,0,0,.32);
-      transition: background .15s, color .15s;
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (min-width: 768px) {
+      .wrap { max-width: 720px; }
+      .nav-inner { max-width: 720px; }
+      .hero-content { max-width: 720px; }
+      .hero-heading { font-size: clamp(60px, 10vw, 80px); }
+      .footer-inner { max-width: 720px; }
     }
-    .social-link:hover { background: rgba(0,0,0,.05); color: var(--black); }
 
-    /* mobile footer spacer */
-    .footer-spacer {
-      height: 72px;
+    @media (min-width: 1024px) {
+      .wrap { max-width: 900px; }
+      .nav-inner { max-width: 900px; }
+      .hero-content { max-width: 900px; }
+      .footer-inner { max-width: 900px; }
+
+      .process-steps {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
     }
-    @media (min-width: 768px) { .footer-spacer { display: none; } }
   </style>
 </head>
 <body>
 
-  <!-- ════════════════════════════════════════════════════
-       NAVBAR
-  ════════════════════════════════════════════════════ -->
-  <header id="navbar" role="banner">
-    <div class="wrap">
-      <nav class="nav-inner" aria-label="Main navigation">
-
-        <!-- Logo -->
-        <a href="/" class="nav-logo" aria-label="5th Creative — home">
-          <div class="nav-logo-badge" aria-hidden="true">5c</div>
-          <span class="nav-logo-name">5th Creative</span>
-        </a>
-
-        <!-- Desktop links -->
-        <ul class="nav-links" role="list">
-          <li><a href="#method">How It Works</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-
-        <!-- Desktop CTA -->
-        <div class="nav-cta">
-          <a href="#contact" class="btn btn-primary">Book A Strategy Call</a>
-        </div>
-
-        <!-- Hamburger -->
-        <button
-          class="nav-hamburger"
-          id="nav-toggle"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="drawer"
-        >
-          <svg id="icon-menu" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
-          <svg id="icon-close-nav" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-
-      </nav>
-    </div>
+  <!-- NAV -->
+  <header id="navbar">
+    <nav class="nav-inner" aria-label="Main navigation">
+      <a href="/" class="nav-logo" aria-label="5th Creative — home">
+        <img src="assets/logo-black.png" alt="5th Creative" />
+      </a>
+      <a href="#cta" class="nav-cta">Let's Talk</a>
+    </nav>
   </header>
 
-  <!-- ════════════════════════════════════════════════════
-       MOBILE DRAWER
-  ════════════════════════════════════════════════════ -->
-  <div id="drawer-overlay" role="presentation" aria-hidden="true"></div>
-  <div id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <div class="drawer-head">
-      <div class="nav-logo">
-        <div class="nav-logo-badge" aria-hidden="true">5c</div>
-        <span class="nav-logo-name">5th Creative</span>
-      </div>
-      <button class="drawer-close" id="drawer-close" aria-label="Close menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-    </div>
-    <nav class="drawer-nav" aria-label="Mobile navigation links">
-      <a href="#method"   class="drawer-link">How It Works</a>
-      <a href="#services" class="drawer-link">Services</a>
-      <a href="#why-us"   class="drawer-link">Why Us</a>
-      <a href="#results"  class="drawer-link">Results</a>
-      <a href="#faq"      class="drawer-link">FAQ</a>
-    </nav>
-    <div class="drawer-foot">
-      <a href="#contact" class="btn btn-primary drawer-link">Book A Strategy Call</a>
-    </div>
-  </div>
+  <main>
 
-  <!-- ════════════════════════════════════════════════════
-       MOBILE STICKY CTA
-  ════════════════════════════════════════════════════ -->
-  <div id="mobile-cta" aria-label="Book a strategy call">
-    <a href="#contact" class="btn btn-primary">Book A Strategy Call</a>
-  </div>
-
-  <main id="main" tabindex="-1">
-
-    <!-- ════════════════════════════════════════════════
-         HERO
-    ════════════════════════════════════════════════ -->
+    <!-- HERO -->
     <section id="hero" aria-label="Hero">
-      <div class="wrap">
-        <div class="hero-content">
-
-          <p class="eyebrow">Content-First Growth Agency</p>
-
-          <h1 class="display hero-heading">
-            Grow Your Business Through Content That Actually Converts.
-          </h1>
-
-          <p class="hero-sub">
-            Create strategic content, build authority, and scale what works with paid advertising.
-          </p>
-
-          <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary">Book A Strategy Call</a>
-            <a href="#method"  class="btn btn-secondary">See How It Works</a>
-          </div>
-
-          <!-- Framework -->
-          <div class="framework" aria-label="Content to growth framework">
-            <div class="framework-inner">
-              <span class="fw-step first">Content</span>
-              <svg class="fw-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              <span class="fw-step">Attention</span>
-              <svg class="fw-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              <span class="fw-step">Trust</span>
-              <svg class="fw-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              <span class="fw-step">Leads</span>
-              <svg class="fw-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              <span class="fw-step last">Scale</span>
-            </div>
-          </div>
-          <p class="framework-label">The 5th Creative Process</p>
-
-        </div>
+      <img
+        class="hero-bg"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_3EiySi9FiZS1xcUPg6DMyzXk0LA/hf_20260606_174859_35a2c48b-8947-4cf1-9c37-494498840632.png"
+        alt=""
+      />
+      <div class="hero-gradient"></div>
+      <div class="hero-content">
+        <h1 class="hero-heading">Attention Creates Opportunity.</h1>
+        <p class="hero-sub">Build trust before the first call.</p>
+        <a href="#cta" class="btn-cta">Let's Create Something Better</a>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════
-         PROBLEM
-    ════════════════════════════════════════════════ -->
-    <section id="problem" aria-labelledby="problem-heading">
+    <!-- PROCESS -->
+    <section id="process" aria-labelledby="process-heading">
       <div class="wrap">
+        <p class="section-label">How We Work</p>
+        <h2 class="section-heading" id="process-heading">Four steps from idea to momentum.</h2>
 
-        <div class="problem-head">
-          <p class="eyebrow">The Problem</p>
-          <h2 class="headline" id="problem-heading">
-            Most Businesses Are Running Ads Too Early.
-          </h2>
-          <p>
-            Businesses spend thousands on advertising before they know what messaging actually works.
-            Without proven content, advertising becomes expensive guesswork.
-            <strong>5th Creative helps businesses validate content organically first</strong>,
-            then invest in paid traffic with confidence.
-          </p>
-        </div>
+        <div class="process-steps">
 
-        <div class="problem-cards">
-
-          <article class="card problem-card">
-            <span class="problem-num">01</span>
-            <div>
-              <h3>No Clear Positioning</h3>
-              <p>Without a defined message, content has no direction and ads have nothing strong to amplify.</p>
+          <article class="process-card">
+            <div class="process-card-header">
+              <span class="process-num">01</span>
+              <h3>Discovery</h3>
             </div>
+            <p>We learn your goals, audience, and competitive landscape. No assumptions — just the right questions.</p>
           </article>
 
-          <article class="card problem-card">
-            <span class="problem-num">02</span>
-            <div>
-              <h3>Inconsistent Content</h3>
-              <p>Sporadic posting builds no authority. Algorithms and audiences both reward consistency.</p>
+          <article class="process-card">
+            <div class="process-card-header">
+              <span class="process-num">02</span>
+              <h3>Strategy & Positioning</h3>
             </div>
+            <p>We define your brand direction and go-to-market plan. You leave knowing exactly who you are and how you win.</p>
           </article>
 
-          <article class="card problem-card">
-            <span class="problem-num">03</span>
-            <div>
-              <h3>Expensive Ad Spend</h3>
-              <p>Running paid traffic to unproven messaging is how businesses burn budget without results.</p>
+          <article class="process-card">
+            <div class="process-card-header">
+              <span class="process-num">03</span>
+              <h3>Build</h3>
             </div>
+            <p>We execute across design, content, and digital — all under one roof. No handoffs to strangers.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-card-header">
+              <span class="process-num">04</span>
+              <h3>Launch & Grow</h3>
+            </div>
+            <p>We go live and scale results through paid and organic channels. Strategy meets momentum.</p>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════
-         METHOD
-    ════════════════════════════════════════════════ -->
-    <section id="method" aria-labelledby="method-heading">
-      <div class="wrap">
-
-        <div class="method-head">
-          <p class="eyebrow">The Method</p>
-          <h2 class="headline" id="method-heading">A Simpler Way To Grow</h2>
-        </div>
-
-        <ol class="method-steps" aria-label="5th Creative method">
-
-          <li class="method-step">
-            <div class="step-num-wrap">
-              <div class="step-num">01</div>
-              <div class="step-line" aria-hidden="true"></div>
-            </div>
-            <div>
-              <h3>Foundation</h3>
-              <p>Clarify positioning, offer, and messaging so everything we create is built on something real.</p>
-            </div>
-          </li>
-
-          <li class="method-step">
-            <div class="step-num-wrap">
-              <div class="step-num">02</div>
-              <div class="step-line" aria-hidden="true"></div>
-            </div>
-            <div>
-              <h3>Strategy</h3>
-              <p>Build a content roadmap aligned to your business goals — not just content for content's sake.</p>
-            </div>
-          </li>
-
-          <li class="method-step">
-            <div class="step-num-wrap">
-              <div class="step-num">03</div>
-              <div class="step-line" aria-hidden="true"></div>
-            </div>
-            <div>
-              <h3>Growth</h3>
-              <p>Create and publish organic content consistently to build authority and attract the right audience.</p>
-            </div>
-          </li>
-
-          <li class="method-step">
-            <div class="step-num-wrap">
-              <div class="step-num">04</div>
-              <div class="step-line" aria-hidden="true"></div>
-            </div>
-            <div>
-              <h3>Maintenance</h3>
-              <p>Track performance data, learn what resonates, and refine your approach over time.</p>
-            </div>
-          </li>
-
-          <li class="method-step">
-            <div class="step-num-wrap">
-              <div class="step-num">05</div>
-            </div>
-            <div>
-              <h3>Scale</h3>
-              <p>Turn your proven organic winners into paid advertising campaigns — no more guesswork.</p>
-            </div>
-          </li>
-
-        </ol>
-
-        <div class="method-footer">
-          <p><strong>Content first. Ads second.</strong> We validate what works organically before investing in paid distribution — so every dollar spent on advertising is backed by proof.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════
-         SERVICES
-    ════════════════════════════════════════════════ -->
+    <!-- SERVICES -->
     <section id="services" aria-labelledby="services-heading">
       <div class="wrap">
+        <p class="section-label">What We Do</p>
+        <h2 class="section-heading" id="services-heading">Full-service creative for brands that move.</h2>
 
-        <div class="services-head">
-          <p class="eyebrow">What We Do</p>
-          <h2 class="headline" id="services-heading">Services</h2>
-        </div>
+        <div class="services-list">
 
-        <div class="services-grid">
-
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
-            </div>
+          <article class="service-card">
+            <div class="service-dot" aria-hidden="true"></div>
             <div>
-              <h3>Content Strategy</h3>
-              <p>A data-driven content plan built around your business goals and audience.</p>
+              <h3>Strategy / Positioning</h3>
+              <p>Define your market position and plan your moves.</p>
             </div>
           </article>
 
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-            </div>
+          <article class="service-card">
+            <div class="service-dot" aria-hidden="true"></div>
             <div>
               <h3>Content Creation</h3>
-              <p>High-quality written, visual, and video content that builds trust and drives action.</p>
+              <p>Words, visuals, and assets that connect with your audience.</p>
             </div>
           </article>
 
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
-            </div>
+          <article class="service-card">
+            <div class="service-dot" aria-hidden="true"></div>
             <div>
-              <h3>Social Media Management</h3>
-              <p>Consistent, on-brand social presence that grows your audience organically.</p>
+              <h3>Website Creation</h3>
+              <p>Fast, mobile-optimized sites built to convert.</p>
             </div>
           </article>
 
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
-            </div>
+          <article class="service-card">
+            <div class="service-dot" aria-hidden="true"></div>
             <div>
-              <h3>Video Editing</h3>
-              <p>Professional editing that transforms raw footage into compelling short and long-form video.</p>
+              <h3>Branding</h3>
+              <p>Identities that look the part and mean something.</p>
             </div>
           </article>
 
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            </div>
+          <article class="service-card">
+            <div class="service-dot" aria-hidden="true"></div>
             <div>
-              <h3>Paid Advertising</h3>
-              <p>Scale proven content with targeted paid campaigns that convert.</p>
-            </div>
-          </article>
-
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <div>
-              <h3>Landing Pages</h3>
-              <p>Conversion-focused pages that turn attention into enquiries and sales.</p>
-            </div>
-          </article>
-
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            </div>
-            <div>
-              <h3>Website Development</h3>
-              <p>Fast, clean websites built to perform and built to last.</p>
-            </div>
-          </article>
-
-          <article class="card service-card">
-            <div class="service-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-            </div>
-            <div>
-              <h3>Marketing Systems</h3>
-              <p>Automations and workflows that turn your content into a consistent growth engine.</p>
+              <h3>Paid Ads</h3>
+              <p>Performance campaigns that turn spend into growth.</p>
             </div>
           </article>
 
@@ -1082,409 +543,95 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════════════
-         WHY US
-    ════════════════════════════════════════════════ -->
-    <section id="why-us" aria-labelledby="why-heading">
+    <!-- CTA / FORM -->
+    <section id="cta" aria-labelledby="cta-heading">
       <div class="wrap">
+        <p class="section-label">Get Started</p>
+        <h2 class="section-heading" id="cta-heading">Let's Build Something Together.</h2>
+        <p class="cta-sub">Book a free 30-minute strategy call. No commitment, no pressure — just clarity.</p>
 
-        <div class="why-head">
-          <p class="eyebrow">Why Us</p>
-          <h2 class="headline" id="why-heading">Why Businesses Choose 5th Creative</h2>
+        <form id="contact-form" class="form-card" novalidate>
+          <div>
+            <label class="form-label">Full Name <span class="req">*</span></label>
+            <input class="form-input" name="name" placeholder="Your full name" required />
+          </div>
+          <div>
+            <label class="form-label">Email Address <span class="req">*</span></label>
+            <input class="form-input" name="email" type="email" placeholder="you@company.com" required />
+          </div>
+          <div>
+            <label class="form-label">Website URL</label>
+            <input class="form-input" name="website" placeholder="https://yourbrand.com" />
+          </div>
+          <div>
+            <label class="form-label">What services interest you?</label>
+            <select class="form-input form-select" name="service">
+              <option value="">Select one…</option>
+              <option>Strategy / Positioning</option>
+              <option>Content Creation</option>
+              <option>Website Creation</option>
+              <option>Branding</option>
+              <option>Paid Ads</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label">Tell us about your business</label>
+            <textarea class="form-input form-textarea" name="message" rows="3" placeholder="What does your brand need right now?"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Book My Free Call</button>
+        </form>
+
+        <div id="form-success" class="success-card">
+          <div class="success-icon">✓</div>
+          <p class="title">You're in.</p>
+          <p class="subtitle">We'll be in touch within 24 hours.</p>
         </div>
-
-        <div class="why-cols">
-
-          <div class="why-col">
-            <div class="why-accent" aria-hidden="true"></div>
-            <div>
-              <h3>Strategic First</h3>
-              <p>Every engagement starts with positioning. We won't create content until we understand your offer, your audience, and how you stand apart.</p>
-            </div>
-          </div>
-
-          <div class="why-col">
-            <div class="why-accent" aria-hidden="true"></div>
-            <div>
-              <h3>Content Led</h3>
-              <p>We identify what works before scaling. Organic content is our testing ground — ads come second, backed by evidence.</p>
-            </div>
-          </div>
-
-          <div class="why-col">
-            <div class="why-accent" aria-hidden="true"></div>
-            <div>
-              <h3>Built For Growth</h3>
-              <p>Organic and paid marketing work together. Once we know what converts, we scale it. No guesswork, no wasted spend.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════
-         CASE STUDIES
-    ════════════════════════════════════════════════ -->
-    <section id="results" aria-labelledby="results-heading">
-      <div class="wrap">
-
-        <div class="results-head">
-          <p class="eyebrow">Results</p>
-          <h2 class="headline" id="results-heading">Results In Progress</h2>
-          <p>We're building real case studies with our current clients. Check back soon.</p>
-        </div>
-
-        <div class="results-grid">
-
-          <article class="card result-card">
-            <div>
-              <p class="result-industry">E-Commerce</p>
-              <div class="result-name-bar" aria-hidden="true"></div>
-              <p class="result-placeholder">Client Name — Coming Soon</p>
-            </div>
-            <div class="result-bottom">
-              <div>
-                <p class="result-metric">+340%</p>
-                <p class="result-sublabel">organic reach in 90 days</p>
-              </div>
-              <span class="result-link" aria-label="Case study coming soon">
-                Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </div>
-          </article>
-
-          <article class="card result-card">
-            <div>
-              <p class="result-industry">Professional Services</p>
-              <div class="result-name-bar" aria-hidden="true"></div>
-              <p class="result-placeholder">Client Name — Coming Soon</p>
-            </div>
-            <div class="result-bottom">
-              <div>
-                <p class="result-metric">4× leads</p>
-                <p class="result-sublabel">from organic content</p>
-              </div>
-              <span class="result-link" aria-label="Case study coming soon">
-                Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </div>
-          </article>
-
-          <article class="card result-card">
-            <div>
-              <p class="result-industry">SaaS</p>
-              <div class="result-name-bar" aria-hidden="true"></div>
-              <p class="result-placeholder">Client Name — Coming Soon</p>
-            </div>
-            <div class="result-bottom">
-              <div>
-                <p class="result-metric">62% lower</p>
-                <p class="result-sublabel">cost-per-lead after content validation</p>
-              </div>
-              <span class="result-link" aria-label="Case study coming soon">
-                Learn More
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-              </span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════
-         FAQ
-    ════════════════════════════════════════════════ -->
-    <section id="faq" aria-labelledby="faq-heading">
-      <div class="wrap">
-
-        <div class="faq-head">
-          <p class="eyebrow">FAQs</p>
-          <h2 class="headline" id="faq-heading">Common Questions</h2>
-        </div>
-
-        <div class="faq-list" role="list">
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">Why not start with ads?</span>
-              <span class="faq-icon" aria-hidden="true">
-                <svg class="icon-plus"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <svg class="icon-minus" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" role="region">
-              <div class="faq-answer-inner">
-                Ads amplify what already works. Running paid traffic before you've validated your messaging means spending money to discover your message doesn't land. Starting with organic content lets you find what resonates — for free. Once you know what converts, ads become a multiplier, not a gamble.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">How often should I post?</span>
-              <span class="faq-icon" aria-hidden="true">
-                <svg class="icon-plus"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <svg class="icon-minus" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" role="region">
-              <div class="faq-answer-inner">
-                Consistency matters more than volume. We build content schedules based on what's sustainable for your business and what each platform rewards. For most clients, that's 3–5 pieces per week across chosen channels — built around a content calendar we create together.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">Do you create content?</span>
-              <span class="faq-icon" aria-hidden="true">
-                <svg class="icon-plus"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <svg class="icon-minus" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" role="region">
-              <div class="faq-answer-inner">
-                Yes. Content creation is core to what we do. We handle strategy, writing, design, and video editing depending on your package. We work closely with you to capture your voice and reflect your brand accurately across everything we produce.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">Do you manage advertising?</span>
-              <span class="faq-icon" aria-hidden="true">
-                <svg class="icon-plus"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <svg class="icon-minus" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" role="region">
-              <div class="faq-answer-inner">
-                Yes — but only after we've identified winning organic content. We manage Meta, Google, and LinkedIn ad campaigns, using your proven content as the creative foundation. This approach consistently lowers cost-per-lead compared to running cold ad creative.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">Can you build my website?</span>
-              <span class="faq-icon" aria-hidden="true">
-                <svg class="icon-plus"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <svg class="icon-minus" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" role="region">
-              <div class="faq-answer-inner">
-                Yes. Website development and landing pages are both services we offer. Whether you need a full site rebuild or a high-converting landing page for a campaign, we can design and build it — with performance and SEO built in from the start.
-              </div>
-            </div>
-          </div>
-
-          <div class="faq-item" role="listitem">
-            <button class="faq-trigger" aria-expanded="false">
-              <span class="faq-question">How long until I see results?</span>
-              <span class="faq-icon" aria-hidden="true">
-                <svg class="icon-plus"  width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                <svg class="icon-minus" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="display:none"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </span>
-            </button>
-            <div class="faq-answer" role="region">
-              <div class="faq-answer-inner">
-                Organic content builds compounding results over time — most clients see meaningful growth in authority and lead quality within 60–90 days. Paid advertising results, when launched after content validation, typically show returns within the first campaign month.
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════
-         FINAL CTA
-    ════════════════════════════════════════════════ -->
-    <section id="contact" aria-labelledby="cta-heading">
-      <div class="wrap">
-        <p class="eyebrow" style="justify-content:center">Ready To Grow</p>
-        <h2 class="headline" id="cta-heading">
-          Turn Attention Into Trust. Trust Into Growth.
-        </h2>
-        <p class="contact-sub">
-          We help businesses create strategic content and scale what works.
-        </p>
-        <div class="contact-ctas">
-          <a href="mailto:hello@5thcreative.com" class="btn btn-white">Book Your Strategy Call</a>
-          <a href="mailto:hello@5thcreative.com" class="btn btn-outline-white">hello@5thcreative.com</a>
-        </div>
-        <p class="contact-trust">No commitment required. We'll start with a 30-minute strategy call.</p>
       </div>
     </section>
 
   </main>
 
-  <!-- ════════════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════════════ -->
-  <footer role="contentinfo">
-    <div class="wrap">
-
-      <div class="footer-grid">
-
-        <!-- Brand -->
-        <div class="footer-brand">
-          <a href="/" class="nav-logo" aria-label="5th Creative — home">
-            <div class="nav-logo-badge" aria-hidden="true">5c</div>
-            <span class="nav-logo-name">5th Creative</span>
-          </a>
-          <p>Content-first growth agency.</p>
-          <a href="mailto:hello@5thcreative.com" class="email">hello@5thcreative.com</a>
-        </div>
-
-        <!-- Nav -->
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="#method">How It Works</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-
-        <!-- Services -->
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul class="two-col">
-            <li><a href="#services">Content Strategy</a></li>
-            <li><a href="#services">Content Creation</a></li>
-            <li><a href="#services">Social Media</a></li>
-            <li><a href="#services">Video Editing</a></li>
-            <li><a href="#services">Paid Advertising</a></li>
-            <li><a href="#services">Landing Pages</a></li>
-            <li><a href="#services">Web Development</a></li>
-            <li><a href="#services">Marketing Systems</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Bottom bar -->
-      <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span id="year"></span> 5th Creative. All rights reserved.</p>
-
-        <div class="social-links" aria-label="Social media links">
-
-          <a href="https://instagram.com" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
-
-          <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect x="2" y="9" width="4" height="12"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
-          </a>
-
-          <a href="https://twitter.com" class="social-link" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-          </a>
-
-        </div>
-      </div>
-
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img class="footer-logo" src="assets/logo.png" alt="5th Creative" />
+      <a href="mailto:hello@5thcreative.com" class="footer-email">hello@5thcreative.com</a>
     </div>
-    <div class="footer-spacer" aria-hidden="true"></div>
   </footer>
 
-  <!-- ════════════════════════════════════════════════════
-       JAVASCRIPT
-  ════════════════════════════════════════════════════ -->
   <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Form validation & submission
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
 
-    // ── Navbar scroll shadow ────────────────────────────────────────
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 12);
-    }, { passive: true });
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = form.elements.name;
+      const email = form.elements.email;
+      let valid = true;
 
-    // ── Mobile drawer ───────────────────────────────────────────────
-    const toggle   = document.getElementById('nav-toggle');
-    const drawer   = document.getElementById('drawer');
-    const overlay  = document.getElementById('drawer-overlay');
-    const closeBtn = document.getElementById('drawer-close');
-    const iconMenu  = document.getElementById('icon-menu');
-    const iconClose = document.getElementById('icon-close-nav');
-    const drawerLinks = document.querySelectorAll('.drawer-link');
+      name.classList.remove('error');
+      email.classList.remove('error');
 
-    function openDrawer() {
-      drawer.classList.add('open');
-      overlay.classList.add('open');
-      overlay.setAttribute('aria-hidden', 'false');
-      toggle.setAttribute('aria-expanded', 'true');
-      iconMenu.style.display  = 'none';
-      iconClose.style.display = '';
-      document.body.style.overflow = 'hidden';
-      closeBtn.focus();
-    }
+      if (!name.value.trim()) {
+        name.classList.add('error');
+        valid = false;
+      }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        email.classList.add('error');
+        valid = false;
+      }
 
-    function closeDrawer() {
-      drawer.classList.remove('open');
-      overlay.classList.remove('open');
-      overlay.setAttribute('aria-hidden', 'true');
-      toggle.setAttribute('aria-expanded', 'false');
-      iconMenu.style.display  = '';
-      iconClose.style.display = 'none';
-      document.body.style.overflow = '';
-      toggle.focus();
-    }
+      if (!valid) return;
 
-    toggle.addEventListener('click', openDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
-    overlay.addEventListener('click', closeDrawer);
-    drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      form.style.display = 'none';
+      success.classList.add('show');
     });
 
-    // ── FAQ accordion ───────────────────────────────────────────────
-    document.querySelectorAll('.faq-trigger').forEach(trigger => {
-      const item   = trigger.closest('.faq-item');
-      const answer = item.querySelector('.faq-answer');
-      const plus   = trigger.querySelector('.icon-plus');
-      const minus  = trigger.querySelector('.icon-minus');
-
-      trigger.addEventListener('click', () => {
-        const isOpen = item.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.faq-item.open').forEach(openItem => {
-          openItem.classList.remove('open');
-          openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-          openItem.querySelector('.faq-answer').style.maxHeight = '0';
-          openItem.querySelector('.icon-plus').style.display  = '';
-          openItem.querySelector('.icon-minus').style.display = 'none';
-        });
-
-        // Open clicked (if it was closed)
-        if (!isOpen) {
-          item.classList.add('open');
-          trigger.setAttribute('aria-expanded', 'true');
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          plus.style.display  = 'none';
-          minus.style.display = '';
-        }
+    // Clear error on input
+    form.querySelectorAll('.form-input').forEach(function(input) {
+      input.addEventListener('input', function() {
+        this.classList.remove('error');
       });
     });
   </script>
