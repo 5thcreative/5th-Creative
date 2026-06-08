@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 const SERVICES_LIST = [
   { value: 'strategy', label: 'Strategy / Positioning' },
@@ -10,6 +10,13 @@ const SERVICES_LIST = [
   { value: 'ads', label: 'Paid Ads' },
 ];
 
+const TIMELINE_OPTIONS = [
+  { value: 'asap', label: 'ASAP' },
+  { value: '1-2months', label: '1–2 months' },
+  { value: '3-6months', label: '3–6 months' },
+  { value: 'flexible', label: 'Flexible' },
+];
+
 const STEPS = [
   { num: '01', name: 'Discovery', desc: 'We learn your goals, audience, and competitive landscape. No assumptions — just the right questions.' },
   { num: '02', name: 'Strategy & Positioning', desc: 'We define your brand direction and go-to-market plan. You leave knowing exactly who you are and how you win.' },
@@ -17,7 +24,49 @@ const STEPS = [
   { num: '04', name: 'Launch & Grow', desc: 'We go live and scale results through paid and organic channels. Strategy meets momentum.' },
 ];
 
+function useScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    els.forEach((el) => observer.observe(el));
+
+    const fallback = setTimeout(() => {
+      els.forEach((el) => {
+        if (!el.classList.contains('visible')) {
+          el.classList.remove('reveal');
+        }
+      });
+    }, 1500);
+
+    return () => { observer.disconnect(); clearTimeout(fallback); };
+  }, []);
+}
+
+function useNavScroll() {
+  useEffect(() => {
+    const nav = document.getElementById('navbar');
+    if (!nav) return;
+    const onScroll = () => {
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+}
+
 export default function Home() {
+  useScrollReveal();
+  useNavScroll();
+
   return (
     <>
       <Nav />
@@ -69,11 +118,11 @@ function Process() {
   return (
     <section id="process" aria-labelledby="process-heading">
       <div className="wrap">
-        <p className="section-label">How We Work</p>
-        <h2 className="section-heading" id="process-heading">Four steps from idea to momentum.</h2>
+        <p className="section-label reveal">How We Work</p>
+        <h2 className="section-heading reveal" id="process-heading">Four steps from idea to momentum.</h2>
         <div className="process-steps">
-          {STEPS.map((step) => (
-            <article className="process-card" key={step.num}>
+          {STEPS.map((step, i) => (
+            <article className={`process-card reveal reveal-delay-${i + 1}`} key={step.num}>
               <div className="process-card-header">
                 <span className="process-num">{step.num}</span>
                 <h3>{step.name}</h3>
@@ -91,11 +140,11 @@ function Services() {
   return (
     <section id="services" aria-labelledby="services-heading">
       <div className="wrap">
-        <p className="section-label">What We Do</p>
-        <h2 className="section-heading" id="services-heading">Full-service creative for brands that move.</h2>
+        <p className="section-label reveal">What We Do</p>
+        <h2 className="section-heading reveal" id="services-heading">Full-service creative for brands that move.</h2>
         <div className="services-list">
-          {SERVICES_LIST.map((svc) => (
-            <article className="service-card" key={svc.value}>
+          {SERVICES_LIST.map((svc, i) => (
+            <article className={`service-card reveal reveal-delay-${Math.min(i + 1, 4)}`} key={svc.value}>
               <div className="service-dot" aria-hidden="true" />
               <div>
                 <h3>{svc.label}</h3>
@@ -116,12 +165,20 @@ function Services() {
 }
 
 function CTAForm() {
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [status, setStatus] = useState('idle');
   const [fieldErrors, setFieldErrors] = useState({});
   const [serverError, setServerError] = useState('');
+  const [selectedServices, setSelectedServices] = useState([]);
+  const [selectedTimeline, setSelectedTimeline] = useState('');
   const formRef = useRef(null);
   const nameRef = useRef(null);
   const emailRef = useRef(null);
+
+  function toggleService(val) {
+    setSelectedServices((prev) =>
+      prev.includes(val) ? prev.filter((s) => s !== val) : [...prev, val]
+    );
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -131,10 +188,8 @@ function CTAForm() {
     const name = fd.get('name')?.trim() || '';
     const email = fd.get('email')?.trim() || '';
     const website = fd.get('website')?.trim() || '';
-    const service = fd.get('service') || '';
     const message = fd.get('message')?.trim() || '';
 
-    // Client-side validation
     const errs = {};
     if (!name) errs.name = true;
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.email = true;
@@ -151,10 +206,15 @@ function CTAForm() {
     setStatus('loading');
 
     try {
+      const services = selectedServices.map((v) =>
+        SERVICES_LIST.find((s) => s.value === v)?.label || v
+      );
+      const timeline = TIMELINE_OPTIONS.find((t) => t.value === selectedTimeline)?.label || '';
+
       const res = await fetch('/api/submit-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, website, service, message }),
+        body: JSON.stringify({ name, email, website, service: services.join(', '), message: `${message}${timeline ? `\n\nTimeline: ${timeline}` : ''}` }),
       });
 
       const data = await res.json();
@@ -191,7 +251,7 @@ function CTAForm() {
         <div className="wrap">
           <p className="section-label">Get Started</p>
           <h2 className="section-heading" id="cta-heading">Let&apos;s Build Something Together.</h2>
-          <p className="cta-sub">Book a free 30-minute strategy call. No commitment, no pressure — just clarity.</p>
+          <p className="cta-sub">Book a free 30-minute strategy call. No commitment, no pressure &mdash; just clarity.</p>
           <div className="success-card" role="alert">
             <div className="success-icon" aria-hidden="true">&#10003;</div>
             <p className="title">You&apos;re in.</p>
@@ -205,11 +265,11 @@ function CTAForm() {
   return (
     <section id="cta" aria-labelledby="cta-heading">
       <div className="wrap">
-        <p className="section-label">Get Started</p>
-        <h2 className="section-heading" id="cta-heading">Let&apos;s Build Something Together.</h2>
-        <p className="cta-sub">Book a free 30-minute strategy call. No commitment, no pressure — just clarity.</p>
+        <p className="section-label reveal">Get Started</p>
+        <h2 className="section-heading reveal" id="cta-heading">Let&apos;s Build Something Together.</h2>
+        <p className="cta-sub reveal">Book a free 30-minute strategy call. No commitment, no pressure &mdash; just clarity.</p>
 
-        <form ref={formRef} className="form-card" onSubmit={handleSubmit} noValidate>
+        <form ref={formRef} className="form-card reveal" onSubmit={handleSubmit} noValidate>
           {serverError && (
             <div className="error-banner" role="alert">{serverError}</div>
           )}
@@ -256,17 +316,41 @@ function CTAForm() {
           </div>
 
           <div>
-            <label className="form-label" htmlFor="field-service">What services interest you?</label>
-            <select className="form-input form-select" id="field-service" name="service">
-              <option value="">Select one…</option>
+            <label className="form-label">What services interest you? <span style={{ color: 'var(--muted)', fontWeight: 400, fontSize: 13 }}>Select all that apply</span></label>
+            <div className="service-chips">
               {SERVICES_LIST.map((svc) => (
-                <option key={svc.value} value={svc.label}>{svc.label}</option>
+                <button
+                  key={svc.value}
+                  type="button"
+                  className={`service-chip${selectedServices.includes(svc.value) ? ' selected' : ''}`}
+                  onClick={() => toggleService(svc.value)}
+                  aria-pressed={selectedServices.includes(svc.value)}
+                >
+                  {svc.label}
+                </button>
               ))}
-            </select>
+            </div>
           </div>
 
           <div>
-            <label className="form-label" htmlFor="field-message">Tell us about your business</label>
+            <label className="form-label">Timeline</label>
+            <div className="timeline-chips">
+              {TIMELINE_OPTIONS.map((t) => (
+                <button
+                  key={t.value}
+                  type="button"
+                  className={`timeline-chip${selectedTimeline === t.value ? ' selected' : ''}`}
+                  onClick={() => setSelectedTimeline((prev) => prev === t.value ? '' : t.value)}
+                  aria-pressed={selectedTimeline === t.value}
+                >
+                  {t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <label className="form-label" htmlFor="field-message">Tell us about your business (please include the name)</label>
             <textarea
               className="form-input form-textarea"
               id="field-message"
@@ -276,11 +360,11 @@ function CTAForm() {
             />
           </div>
 
-          <button type="submit" className="form-submit" disabled={status === 'loading'}>
+          <button type="submit" className="form-submit" disabled={status === 'loading'} style={{ textAlign: 'center' }}>
             {status === 'loading' ? (
-              <><span className="loading-spinner" aria-hidden="true" /> Submitting…</>
+              <><span className="loading-spinner" aria-hidden="true" /> Submitting&hellip;</>
             ) : (
-              'Book My Free Call'
+              "Let’s Grow Your Business"
             )}
           </button>
         </form>
